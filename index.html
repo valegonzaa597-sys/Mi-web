@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Valentín González — Diseño Gráfico Profesional</title>
+  <meta name="description" content="Diseño gráfico: branding, identidad visual, packaging y contenido para redes. Portfolio y contacto." />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Basic Open Graph -->
+  <meta property="og:title" content="Valentín González — Diseño Gráfico Profesional">
+  <meta property="og:description" content="Branding, logos, packaging y contenido visual para marcas.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="placeholder-share-image.jpg">
+  <style>
+    :root{
+      --bg:#0f1720;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#ffcc00;
+      --white:#eaf0f6;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #071020 0%, #0b1220 100%);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:60px;
+    }
+
+    a{color:inherit; text-decoration:none;}
+    header{
+      position:sticky; top:0; z-index:40;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(11,17,28,0.6), rgba(11,17,28,0.35));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .container{max-width:1100px; margin:0 auto; padding:24px;}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+    }
+    .brand{display:flex; gap:12px; align-items:center; font-weight:700}
+    .brand .logo{
+      width:44px; height:44px; border-radius:10px; background:linear-gradient(135deg,#ffcc00 0%, #ff9f1c 100%);
+      display:inline-grid; place-items:center; color:#081021; font-weight:800;
+    }
+    nav ul{display:flex; gap:16px; list-style:none; margin:0; padding:0; align-items:center;}
+    nav a.cta{
+      background:var(--accent); color:#081021; padding:10px 14px; border-radius:10px; font-weight:600;
+    }
+
+    /* Hero */
+    .hero{
+      display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center;
+      padding:56px 0;
+    }
+    .hero-left h1{font-size:2.1rem; margin:0 0 12px; letter-spacing:-0.02em;}
+    .hero-left p.lead{color:var(--muted); margin:0 0 18px;}
+    .hero-ctas{display:flex; gap:12px; margin-top:18px;}
+    .btn{padding:12px 16px; border-radius:10px; font-weight:600; cursor:pointer; border:0}
+    .btn-primary{background:var(--accent); color:#081021}
+    .btn-ghost{background:transparent; color:var(--white); border:1px solid rgba(255,255,255,0.06)}
+
+    /* Card preview */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:18px; box-shadow:0 6px 18px rgba(2,6,23,0.6); border:1px solid rgba(255,255,255,0.03)
+    }
+    .profile{
+      display:flex; gap:12px; align-items:center;
+    }
+    .profile img{width:64px; height:64px; border-radius:12px; object-fit:cover; border:2px solid rgba(255,255,255,0.04)}
+    .skills{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;}
+    .chip{background:rgba(255,255,255,0.03); padding:8px 10px; border-radius:999px; font-size:0.85rem; color:var(--muted)}
+
+    /* Services + portfolio */
+    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:24px}
+    .services ul{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px}
+    .service{background:var(--glass); padding:14px; border-radius:10px; border:1px solid rgba(255,255,255,0.02)}
+    .service h4{margin:0 0 6px; font-size:1rem}
+    .service p{margin:0; color:var(--muted); font-size:0.92rem}
+
+    .portfolio-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:12px}
+    .work{
+      aspect-ratio:4/3; background:#111827; border-radius:10px; overflow:hidden; position:relative; cursor:pointer;
+      display:flex; align-items:end; padding:12px;
+    }
+    .work img{width:100%; height:100%; object-fit:cover; display:block; filter:brightness(0.9)}
+    .work .meta{position:absolute; left:12px; bottom:12px; color:var(--white); font-weight:600; text-shadow:0 6px 18px rgba(2,6,23,0.6)}
+
+    /* Testimonials */
+    .testimonials{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; margin-top:20px}
+    .testimonial{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:16px; border-radius:10px; border:1px solid rgba(255,255,255,0.02)}
+    .testimonial p{color:var(--muted); margin:8px 0 0}
+
+    /* Contact */
+    .contact{display:grid; grid-template-columns:1fr 360px; gap:18px; margin-top:28px}
+    form label{display:block; font-size:0.86rem; margin-bottom:6px; color:var(--muted)}
+    input,textarea,button{width:100%; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:rgba(255,255,255,0.02); color:var(--white)}
+    textarea{min-height:140px; resize:vertical}
+    .socials{display:flex; gap:8px; margin-top:12px}
+
+    footer{margin-top:48px; color:var(--muted); text-align:center; font-size:0.92rem; padding:36px 0 80px;}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr; padding:36px 0}
+      .contact{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand" aria-label="Marca personal">
+        <div class="logo" aria-hidden="true">VG</div>
+        <div>
+          <div style="font-size:0.95rem">Valentín González</div>
+          <div style="font-size:0.78rem; color:var(--muted)">Diseño gráfico · Branding · Contenido</div>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#contacto" class="cta">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <!-- HERO -->
+    <section class="hero" id="inicio" aria-label="Portada">
+      <div class="hero-left">
+        <h1>Diseño gráfico que hace destacar marcas.</h1>
+        <p class="lead">Diseño de identidad, packaging y contenido visual pensado para crecer en redes y generar conexión con tu audiencia.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#contacto">Contratar ahora</a>
+          <a class="btn btn-ghost" href="#portfolio">Ver portafolio</a>
+        </div>
+
+        <div style="margin-top:22px" aria-hidden="false">
+          <small style="color:var(--muted)">Servicios destacados:</small>
+          <div class="skills" style="margin-top:8px">
+            <span class="chip">Branding</span>
+            <span class="chip">Logotipos</span>
+            <span class="chip">Packaging</span>
+            <span class="chip">Posts para RRSS</span>
+            <span class="chip">Identidad visual</span>
+          </div>
+        </div>
+
+        <div style="margin-top:24px; color:var(--muted); font-size:0.95rem;">
+          <strong>Propuesta:</strong> identidad rápida (3 días) · revisiones incluidas · entrego archivos vectoriales y guía de uso.
+        </div>
+      </div>
+
+      <aside class="card hero-right" aria-label="Tarjeta de contacto rápido">
+        <div class="profile">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&crop=faces" alt="Foto de Valentín González">
+          <div>
+            <div style="font-weight:700">Valentín González</div>
+            <div style="color:var(--muted); font-size:0.9rem">Diseñador gráfico freelance</div>
+            <div style="margin-top:8px; color:var(--muted); font-size:0.85rem">Basado en Bella Vista · Disponible para proyectos remotos</div>
+          </div>
+        </div>
+
+        <div class="skills" style="margin-top:14px">
+          <span class="chip">Illustrator</span>
+          <span class="chip">Photoshop</span>
+          <span class="chip">Figma</span>
+          <span class="chip">After Effects</span>
+        </div>
+
+        <div style="margin-top:16px; display:flex; gap:8px;">
+          <a class="btn btn-primary" href="#contacto">Solicitar cotización</a>
+          <a class="btn btn-ghost" href="#sobre-mi">Ver CV</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" aria-label="Servicios">
+      <h2 style="margin:0 0 8px">Servicios</h2>
+      <p style="color:var(--muted); margin:0 0 12px">Trabajo con marcas y emprendedores: desde el logo hasta piezas para campañas.</p>
+
+      <div class="services card">
+        <ul>
+          <li class="service">
+            <h4>Branding & Identidad</h4>
+            <p>Nombre, logo, paleta, tipografía y manual básico de identidad.</p>
+          </li>
+          <li class="service">
+            <h4>Diseño de Logotipo</h4>
+            <p>Variantes (vertical/horizontal), versión color y monocromática, vectores.</p>
+          </li>
+          <li class="service">
+            <h4>Packaging</h4>
+            <p>Mockups, dielines y artes listos para imprenta.</p>
+          </li>
+          <li class="service">
+            <h4>Contenido para RRSS</h4>
+            <p>Plantillas, carruseles y animaciones cortas para Instagram / TikTok.</p>
+          </li>
+          <li class="service">
+            <h4>Material impreso</h4>
+            <p>Flyers, folletos, carteles y piezas POP con enfoque comercial.</p>
+          </li>
+          <li class="service">
+            <h4>Animación & Motion</h4>
+            <p>Intro, banners animados y microinteracciones para redes y web.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" aria-label="Portafolio" style="margin-top:18px">
+      <h2 style="margin:0 0 8px">Portafolio</h2>
+      <p style="color:var(--muted); margin:0 0 12px">Algunos proyectos recientes. Haz clic para ampliar.</p>
+
+      <div class="portfolio-grid" id="works">
+        <!-- Reemplaza las imágenes con tus propias obras -->
+        <div class="work" data-title="Brand Casa Dulce" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200&auto=format&fit=crop" alt="Proyecto: Brand Casa Dulce">
+          <div class="meta">Casa Dulce · Branding</div>
+        </div>
+        <div class="work" data-title="Packaging Yerba" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1200&auto=format&fit=crop" alt="Proyecto: Packaging yerba">
+          <div class="meta">Tierra Verde · Packaging</div>
+        </div>
+        <div class="work" data-title="Campaña verano" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop" alt="Proyecto: Campaña verano">
+          <div class="meta">Summer Drop · RRSS</div>
+        </div>
+        <div class="work" data-title="Logo VG" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Proyecto: Logo VG">
+          <div class="meta">VG Studio · Identidad</div>
+        </div>
+      </div>
+
+      <!-- Lightbox modal -->
+      <div id="lightbox" aria-hidden="true" style="display:none; position:fixed; inset:0; z-index:80; background:rgba(2,6,23,0.85); align-items:center; justify-content:center; padding:20px;">
+        <button id="lb-close" aria-label="Cerrar" style="position:absolute; right:18px; top:18px; background:transparent; border:0; color:var(--white); font-size:1.2rem; cursor:pointer">✕</button>
+        <img id="lb-img" alt="" style="max-width:90%; max-height:80%; border-radius:12px; box-shadow:0 24px 60px rgba(2,6,23,0.8)">
+        <div id="lb-caption" style="margin-top:12px; color:var(--muted); text-align:center"></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section aria-label="Testimonios" style="margin-top:22px">
+      <h2 style="margin:0 0 8px">Testimonios</h2>
+      <div class="testimonials">
+        <div class="testimonial card">
+          <div style="font-weight:700">Lucía, fundadora de Dulces</div>
+          <p>"Excelente trabajo — captó la esencia de mi marca y el packaging quedó perfecto para la venta."</p>
+        </div>
+        <div class="testimonial card">
+          <div style="font-weight:700">Mateo, marketing</div>
+          <p>"Entrega rápida y profesional. Muy recomendable para proyectos de redes sociales."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MI -->
+    <section id="sobre-mi" aria-label="Sobre mi" style="margin-top:22px" class="card">
+      <h2 style="margin:0 0 8px">Sobre mí</h2>
+      <div style="display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap">
+        <div style="flex:1; min-width:260px">
+          <p style="color:var(--muted); margin-top:0">Soy diseñador gráfico especializado en branding y diseño para redes. Trabajo con emprendedores y pymes para mejorar su imagen y rendimiento visual. Entrego archivos listos para impresión y adaptados para plataformas digitales.</p>
+          <ul style="color:var(--muted)">
+            <li>+4 años de experiencia</li>
+            <li>Entregas en formatos vectoriales (.ai, .svg)</li>
+            <li>Soporte post-entrega: guía de uso y variantes</li>
+          </ul>
+        </div>
+        <div style="width:200px">
+          <img src="https://images.unsplash.com/photo-1545996124-8a1ad1d8e7b8?q=80&w=800&auto=format&fit=crop" alt="Imagen representativa" style="width:100%; border-radius:10px; object-fit:cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" aria-label="Contacto" style="margin-top:22px">
+      <h2 style="margin:0 0 8px">Contacto</h2>
+      <p style="color:var(--muted); margin:0 0 12px">Escribime con tu idea, presupuesto o consulta. Respondo en 24–48 h hábiles.</p>
+
+      <div class="contact">
+        <form id="contact-form" class="card" onsubmit="return sendForm(event)">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" required placeholder="Tu nombre">
+
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" required placeholder="tunombre@email.com">
+
+          <label for="message">Mensaje / brief</label>
+          <textarea id="message" name="message" required placeholder="¿Qué tipo de proyecto? plazos, presupuesto…"></textarea>
+
+          <div style="display:flex; gap:8px; margin-top:12px;">
+            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            <a href="mailto:tuemail@ejemplo.com" class="btn btn-ghost" style="display:inline-flex; align-items:center">Enviar por email</a>
+          </div>
+          <div id="form-status" style="margin-top:10px; color:var(--muted); font-size:0.95rem"></div>
+        </form>
+
+        <aside class="card" style="height:100%;">
+          <h4 style="margin:0 0 8px">Redes</h4>
+          <div class="socials">
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Behance">Behance</a>
+            <a href="#" aria-label="TikTok">TikTok</a>
+          </div>
+
+          <h4 style="margin-top:18px">Datos</h4>
+          <div style="color:var(--muted)">
+            <div>📍 Bella Vista, Argentina</div>
+            <div>⌚ Respondo 24–48 h</div>
+            <div style="margin-top:8px">💼 Disponible para freelance y colaboraciones</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Valentín González · Diseño Gráfico · <a href="#contacto">Contactar</a>
+    </footer>
+  </main>
+
+  <script>
+    // Fill year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox logic
+    const works = document.querySelectorAll('.work');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCaption = document.getElementById('lb-caption');
+    const lbClose = document.getElementById('lb-close');
+
+    works.forEach(w => {
+      w.addEventListener('click', () => openLB(w));
+      w.addEventListener('keydown', (e) => { if(e.key === 'Enter') openLB(w); });
+    });
+    function openLB(el){
+      const img = el.querySelector('img');
+      lbImg.src = img.src;
+      lbImg.alt = img.alt || '';
+      lbCaption.textContent = el.dataset.title || img.alt || '';
+      lightbox.style.display = 'flex';
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLB(){
+      lightbox.style.display = 'none';
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+    lbClose.addEventListener('click', closeLB);
+    lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLB(); });
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLB(); });
+
+    // Simple contact "send" (demo only)
+    function sendForm(e){
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      status.textContent = 'Preparando mensaje...';
+      // Nota: para que esto funcione realmente necesitas un backend o un servicio de formulario (Formspree, EmailJS, Netlify Forms, etc.)
+      // Aquí mostramos mensaje de éxito simulado:
+      setTimeout(() => {
+        status.textContent = 'Mensaje enviado (simulado). Si quieres que esto envíe emails reales, te paso opciones de integración.';
+        document.getElementById('contact-form').reset();
+      }, 700);
+      return false;
+    }
+  </script>
+</body>
+</html>
